@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <cmath>
 #include "Decrypt.h"
-
 
 
 char convertBase58toDecimal(char x)
@@ -21,9 +21,52 @@ char convertBase58toDecimal(char x)
         return -1;
     }
     return index;
-
-
 };
+
+int convertHextoDecimal(char x)
+{
+    // hex array
+    const std::string hexarray = "0123456789ABCDEF";
+    int index1 = hexarray.find(x);
+
+    return index1;
+}
+
+
+long long decimalToBase58(long long x)
+{
+    long long base10{ 0 };
+    std::string decimalStr = std::to_string(x);
+
+    for (size_t index = 0; index < decimalStr.length(); ++index)
+    {
+        char y = decimalStr[index];
+        int base58value = convertBase58toDecimal(y);
+        long long newsumand = base58value * pow(58, decimalStr.length() - index - 1);
+        base10 = base10 + newsumand;
+    }
+    return base10;
+}
+
+long long hexToBase58(char x)
+{
+    long long base10{ 0 };
+    std::string decimalStr = std::to_string(x);
+
+    for (size_t index = 0; index < decimalStr.length(); ++index)
+    {
+        char y = decimalStr[index];
+        int base58value = convertBase58toDecimal(y);
+        long long newsumand = base58value * pow(58, decimalStr.length() - index - 1);
+        base10 = base10 + newsumand;
+    }
+    return base10;
+}
+
+int mmi(char x, char p) // Modular Multiplicative Inverse
+{
+    return 0;
+}
 
 int main()
 {
@@ -40,4 +83,4 @@ int main()
     return 0;
 }
 
-
+// Bitcoin ecc protocol
