@@ -5,6 +5,14 @@
 
 int main()
 {
+    // bitcoin wallet 
+    std::string public_key{ "1E1eZNRxbNHQNPEraaCZw1YvuXhDCbtEid "};
+    
+    std::string private_key{"L5buqNXpTnu7eAUusKnHdW74gyjczV6B77hmTE1DUqnpkVv61ste"};
+
+    std::cout << sizeof(private_key) << std::endl;
+    
+    
     std::cout << "Hello World!\n";
 }
 
